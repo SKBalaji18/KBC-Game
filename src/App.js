@@ -7,10 +7,10 @@ import PlayerScreen from './Components/PlayerScreen';
 import {GameProvider} from './Context/GameProvider'
 
 const App = () => {
-
+  const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
 
     return (
-      <GameProvider>
+      <GameProvider currentQuestionIndex={currentQuestionIndex} setCurrentQuestionIndex={setCurrentQuestionIndex} >
         <Router>
           <div className="container">
               <Routes>

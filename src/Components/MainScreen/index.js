@@ -6,10 +6,14 @@ import './index.css'
 const MainScreen = () => {
   const { players, handleAnswerSubmit,currentQuestion,congratsMessage,feedbackMessage } = useGame()
   const [selectedAnswer, setSelectedAnswer] = useState("");
-  console.log(currentQuestion)
   const handleOptionChange = (event) => {
     setSelectedAnswer(event.target.id);
   };
+
+  const submitOption = () => {
+    handleAnswerSubmit(selectedAnswer)
+    setSelectedAnswer('')
+  }
 
     return (
         <div>
@@ -39,7 +43,7 @@ const MainScreen = () => {
                     </div>
                     ))}
               </div>
-              <button className="button" onClick={() => handleAnswerSubmit(selectedAnswer)}>Submit Answer</button>
+              <button className="button" onClick={submitOption}>Submit Answer</button>
               {congratsMessage && <p style={{ color: 'green' }}>{congratsMessage}</p>}
               {feedbackMessage && <p style={{ color: 'red' }}>{feedbackMessage}</p>}
         </div>

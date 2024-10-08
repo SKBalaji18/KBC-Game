@@ -1,10 +1,12 @@
 import React, { useState } from 'react';
 import {useGame} from '../../Context/GameProvider'
+import './index.css'
 
 const PlayerScreen = () => {
 
     const { currentQuestion, handleAnswerSubmit,playerJoin ,congratsMessage,feedbackMessage} = useGame();
     const [selectedAnswer, setSelectedAnswer] = useState("");
+
     const [playerName, setPlayerName] = useState("");
 
     const [showQuestion,setShowQuestion] = useState(false)
@@ -20,6 +22,11 @@ const PlayerScreen = () => {
     const handleOptionChange = (event) => {
       setSelectedAnswer(event.target.id);
     };
+
+    const submitOption = () => {
+      handleAnswerSubmit(selectedAnswer)
+      setSelectedAnswer('')
+    }
 
     return (
         <div className='input-container'>
@@ -40,7 +47,7 @@ const PlayerScreen = () => {
                     </div>
                 ))}
             </div>
-            <button className="button" onClick={() => handleAnswerSubmit(selectedAnswer)}>Submit Answer</button>
+            <button className="button" onClick={submitOption}>Submit Answer</button>
             {congratsMessage && <p style={{ color: 'green' }}>{congratsMessage}</p>}
             {feedbackMessage && <p style={{ color: 'red' }}>{feedbackMessage}</p>}
             </> ):(
