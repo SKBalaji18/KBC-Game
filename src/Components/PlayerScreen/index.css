@@ -1,0 +1,42 @@
+.player-container {
+    max-width: 600px;
+    margin: 20px auto;
+    background: #ffffff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+    text-align: center;
+  }
+  
+  .player-container h2 {
+    color: #2e3b4e;
+    margin-bottom: 20px;
+  }
+  
+  .player-container p {
+    font-size: 1.5em;
+    color: #2e3b4e;
+  }
+  
+  .answer-options {
+    display: flex;
+    flex-direction: column;
+    margin: 20px 0;
+  }
+  
+  .answer-options button {
+    margin: 10px 0;
+    font-size: 1.2em;
+  }
+  
+  .feedback {
+    font-size: 1.2em;
+    color: red;
+    margin-top: 15px;
+  }
+  
+  @media (max-width: 768px) {
+    .player-container {
+      width: 90%;
+    }
+  }
