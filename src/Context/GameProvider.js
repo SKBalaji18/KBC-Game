@@ -1,4 +1,4 @@
-import React, { useState, createContext, useContext } from 'react';
+import React, { useState, createContext, useContext, useEffect } from 'react';
 
 // Create the Game Context
 const GameContext = createContext();
@@ -82,7 +82,7 @@ export const GameProvider = ({ children }) => {
           }else{
             setCongratsMessage(playerName 
               ? `Congratulations, ${playerName}!`
-              : `GCongratulations!`);
+              : `Congratulations!`);
             setFeedbackMessage(""); // Clear feedback message
             setTimeout(() => {
               setCongratsMessage("");
@@ -95,6 +95,15 @@ export const GameProvider = ({ children }) => {
           setCongratsMessage(""); // Clear congrats message
       }
   };
+
+  useEffect(() => {
+    // You can reset messages or perform actions when the question changes
+    setFeedbackMessage(""); // Clear feedback message when question changes
+    // Optionally, you could do other things like logging
+    console.log(`Current question index updated to: ${currentQuestionIndex}`);
+  }, [currentQuestionIndex]); // Run when currentQuestionIndex changes
+
+  
 
   const playerJoin = (playerName) => setPlayers([...players,playerName])
 
