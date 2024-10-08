@@ -1,6 +1,7 @@
 import React,{useState} from 'react';
 import QRCodeDisplay from '../QRCodeDisplay';
 import {useGame} from '../../Context/GameProvider'
+import './index.css'
 
 const MainScreen = () => {
   const { players, handleAnswerSubmit,currentQuestion,congratsMessage,feedbackMessage } = useGame()
@@ -12,16 +13,20 @@ const MainScreen = () => {
 
     return (
         <div>
+            <h1 className='game-head'>KBC Game</h1>
             <QRCodeDisplay />
+            <h1 className='head'>Players:</h1>
             {players.length > 0 ?
-              <h3>Players: {players.join(', ')}</h3> : <h1>Players: No Players Joined yet</h1>
+              (<>
+                <h3>{players.join(', ')}</h3>
+              </>):(<h3>No Player joined yet</h3>)
             }
-            <h1>Current Question</h1>
+            <h1 className='current-question-head'>Current Question:</h1>
             <h2 className="question">{currentQuestion.question}</h2>
               <div className="options">
                   
                   {Object.entries(currentQuestion.options).map(([key, value]) => (
-                    <div key={key} className="option">
+                    <div key={key} className='option'>
                       <input
                           type="radio"
                           id={key}
@@ -35,8 +40,8 @@ const MainScreen = () => {
                     ))}
               </div>
               <button className="button" onClick={() => handleAnswerSubmit(selectedAnswer)}>Submit Answer</button>
-              {congratsMessage && <h2>{congratsMessage}</h2>}
-              {feedbackMessage && <h3 style={{ color: 'red' }}>{feedbackMessage}</h3>}
+              {congratsMessage && <p style={{ color: 'green' }}>{congratsMessage}</p>}
+              {feedbackMessage && <p style={{ color: 'red' }}>{feedbackMessage}</p>}
         </div>
     );
 };

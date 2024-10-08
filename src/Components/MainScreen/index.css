@@ -1,129 +1,18 @@
 
+.current-question-head{
+  font-family: "Roboto";
+  font-size: 24px;
+  text-align: left;
+  font-weight: 500;
+}
 
-.main-screen {
-    text-align: center;
-    padding: 20px;
-  }
-  
-  .main-screen h1 {
-    font-size: 2.5rem;
-    color: #343a40;
-    margin-bottom: 20px;
-  }
-  
-  .qr-container {
-    margin-bottom: 30px;
-  }
-  
-  .qr-container canvas {
-    border: 5px solid #ffc107;
-    border-radius: 10px;
-  }
-  
-  .question-box {
-    background-color: #ffffff;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    padding: 20px;
-    width: 50%;
-    margin: 0 auto;
-  }
-  
-  .question-box h2 {
-    font-size: 1.8rem;
-    color: #007bff;
-  }
-  
-  .options-list {
-    list-style: none;
-    padding: 0;
-  }
-  
-  .options-list li {
-    background-color: #f1f1f1;
-    margin: 10px 0;
-    padding: 10px;
-    border-radius: 5px;
-    font-size: 1.2rem;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-  }
-  
-  .options-list li:hover {
-    background-color: #e2e2e2;
-  }
-  
-  .congratulations {
-    font-size: 1.5rem;
-    color: #28a745;
-    animation: winner-blink 1s infinite;
-  }
-  
-  @keyframes winner-blink {
-    0% {
-      opacity: 1;
-    }
-    50% {
-      opacity: 0.5;
-    }
-    100% {
-      opacity: 1;
-    }
-  }
-  
-  /* Styling for Mobile Screen */
-  .mobile-screen {
-    text-align: center;
-    padding: 20px;
-  }
-  
-  .mobile-screen h2 {
-    font-size: 2rem;
-    color: #007bff;
-    margin-bottom: 20px;
-  }
-  
-  input[type="text"] {
-    padding: 10px;
-    font-size: 1.2rem;
-    border-radius: 5px;
-    border: 1px solid #ccc;
-    width: 80%;
-    margin-bottom: 20px;
-  }
-  
-  button {
-    padding: 10px 20px;
-    font-size: 1.2rem;
-    border: none;
-    border-radius: 5px;
-    background-color: #28a745;
-    color: white;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-  }
-  
-  button:hover {
-    background-color: #218838;
-  }
-  
-  /* Styling for answer options */
-  .radio-container {
-    margin: 20px 0;
-    display: flex;
-    justify-content: space-around;
-  }
-  
-  .radio-container input[type="radio"] {
-    margin: 0 5px;
-  }
-  
-  button.submit-btn {
-    margin-top: 20px;
-    background-color: #ffc107;
-    color: #343a40;
-  }
-  
-  button.submit-btn:hover {
-    background-color: #e0a800;
-  }
+.game-head{
+  color: #170330f5;
+  font-size: 24px;
+  font-weight: 600;
+}
+
+.head{
+  font-size: 24px;
+  font-weight: 600;
+}
