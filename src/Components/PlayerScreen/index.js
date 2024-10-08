@@ -1,6 +1,9 @@
 import React, { useState } from 'react';
+import {useGame} from '../../Context/GameProvider'
 
-const PlayerScreen = ({ currentQuestion, onSubmit,onJoin ,congratsMessage,feedbackMessage}) => {
+const PlayerScreen = () => {
+
+    const { currentQuestion, handleAnswerSubmit,playerJoin ,congratsMessage,feedbackMessage} = useGame();
     const [selectedAnswer, setSelectedAnswer] = useState("");
     const [playerName, setPlayerName] = useState("");
 
@@ -8,14 +11,14 @@ const PlayerScreen = ({ currentQuestion, onSubmit,onJoin ,congratsMessage,feedba
 
     const handleJoin = () => {
         if (playerName) {
-            onJoin(playerName);
+            playerJoin(playerName);
             setShowQuestion(true)
             setPlayerName(""); // Clear input after joining
         }
     };
 
     const handleOptionChange = (event) => {
-      setSelectedAnswer(event.target.value);
+      setSelectedAnswer(event.target.id);
     };
 
     return (
@@ -29,7 +32,7 @@ const PlayerScreen = ({ currentQuestion, onSubmit,onJoin ,congratsMessage,feedba
                           type="radio"
                           id={key}
                           name="answer"
-                          value={key}
+                          value={selectedAnswer}
                           checked={selectedAnswer === key}
                           onChange={handleOptionChange}
                       />
@@ -37,7 +40,7 @@ const PlayerScreen = ({ currentQuestion, onSubmit,onJoin ,congratsMessage,feedba
                     </div>
                 ))}
             </div>
-            <button className="button" onClick={() => onSubmit(selectedAnswer)}>Submit Answer</button>
+            <button className="button" onClick={() => handleAnswerSubmit(selectedAnswer)}>Submit Answer</button>
             {congratsMessage && <h2>{congratsMessage}</h2>}
             {feedbackMessage && <h3 style={{ color: 'red' }}>{feedbackMessage}</h3>}
             </> ):(
